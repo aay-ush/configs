@@ -2,16 +2,21 @@
 #SingleInstance force
 #NoTrayIcon
 
+" Use shift+Capslock for capslock toggle
 +Capslock::Capslock
+return
 
+" Use capslock to minimize current window
 Capslock::
 WinGetTitle, minimized_window, A
-WinMinimize A
-WinWaitNotActive %minimized_window%
-WinActivate A
+WinMinimize %minimized_window%
+return
 
+" Use Ctrl + Capslock to restore last hotkey minimized window
+^Capslock::
+WinRestore,  %minimized_window%
+return
 
-<^Capslock::WinRestore, %minimized_window%
 
 ;;--------;
 ;; To hide a window. Shouldn't be used because it literally hides it.
