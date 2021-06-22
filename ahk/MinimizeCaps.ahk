@@ -6,15 +6,17 @@
 +Capslock::Capslock
 return
 
+last_minimized_window :=
+
 " Use capslock to minimize current window
 Capslock::
-WinGetTitle, minimized_window, A
-WinMinimize %minimized_window%
+last_minimized_window := WinExist("A")
+WinMinimize, ahk_id %last_minimized_window%
 return
 
 " Use Ctrl + Capslock to restore last hotkey minimized window
 ^Capslock::
-WinRestore,  %minimized_window%
+WinActivate, ahk_id  %last_minimized_window%
 return
 
 
