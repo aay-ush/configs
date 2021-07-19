@@ -1,0 +1,32 @@
+# Ensure 256 color terminals (useful for themes)
+term screen-256color
+
+# Ensure high scrollback buffer
+defscrollback 10000
+
+# Show a status line on screen window listing all windows
+hardstatus off
+hardstatus alwayslastline
+#<standout hostname+padding>   ...<window list in underlined grey> <active window in white> <remaining windows in  underlined grey>...
+hardstatus string '%{+s kK} %H%015=%{+u .kK}   %-w%10L>%{-u .kW}%n %t%{-}%+w%90<"
+
+# For split screen caption doesn't show bottom bar in active window
+caption splitonly '%?%F%{kk}%:%{kd}%?%='
+
+# Navigate regions with Ctrl-arrows
+# TODO: add info on how to get escaped key code for arrow keys using shell
+bindkey "^[[D" focus left
+bindkey "^[[C" focus right
+bindkey "^[[A" focus up
+bindkey "^[[B" focus down
+
+# Mouse tracking allows to switch region focus by clicking
+mousetrack on
+
+# Dynamic titles
+# TODO: Add the perhaps more useful bashrc tweak to get $(PWD) as title
+# shelltitle "$ |bash"
+
+# Avoid screen freakout over trivial stuff
+vbell off
+
