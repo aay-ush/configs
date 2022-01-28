@@ -1,0 +1,13 @@
+#!/bin/sh
+
+traceEcho() {
+    # Uncomment to enable traces
+    # echo "$*"
+    # Uncomment to disable traces
+    echo > /dev/null
+}
+
+timedEcho() {
+    echo $(date "+%F %T") $*
+}
+
