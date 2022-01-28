@@ -35,6 +35,9 @@ colors() {
 
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
 
+# Enable word wrap for cmdline
+set -o multiline
+
 # Change the window title of X terminals
 case ${TERM} in
     xterm*|rxvt*|Eterm*|aterm|kterm|gnome*|interix|konsole*)
@@ -138,6 +141,9 @@ source /usr/share/git/git-prompt.sh
 if ${__git_ps1} ; then
     export PS1='\[\033[01;32m\][\u@\h\[\033[01;37m\] \W\[\033[01;32m\]]\[\033[33m\]$(__git_ps1)\[\033[00m\]\n$ '
 fi
+# Frosty prompt
+#exportPS1="\[\033[1;36m\]\u\[\033[1;30m\]@\h \[\033[0;35m\][\W] \[\033[1;30m\]\n\$ \[\033[0m\] "
+
 #export PS1="\[\033[01;32m\][\u@\h\[\033[01;37m\] \W\[\033[01;32m\]] \[\033[33m\](\$(git symbolic-ref --short HEAD 2>/dev/null))\[\033[00m\]\$ "
 #export PS1="\[\033[01;32m\][\u@\h\[\033[01;37m\] \W\[\033[01;32m\]] [\$(git symbolic-ref --short HEAD 2>/dev/null)]\$\[\033[00m\] "
 # colourless prompt:
